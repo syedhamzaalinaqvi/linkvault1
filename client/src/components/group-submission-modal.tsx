@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -139,14 +139,16 @@ export function GroupSubmissionModal({ isOpen, onClose }: GroupSubmissionModalPr
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto" aria-describedby="dialog-description">
         <DialogHeader>
           <div className="flex items-center justify-between">
             <div>
               <DialogTitle className="text-2xl font-bold text-gray-900">
                 Submit Your WhatsApp Group
               </DialogTitle>
-              <p className="text-gray-600">Share your community with thousands of users worldwide</p>
+              <DialogDescription id="dialog-description" className="text-gray-600">
+                Share your community with thousands of users worldwide
+              </DialogDescription>
             </div>
             <Button variant="ghost" onClick={onClose} className="p-2">
               <X className="w-6 h-6" />

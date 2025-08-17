@@ -1,29 +1,24 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "client/dist",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
+  "buildCommand": "node build.js",
+  "outputDirectory": "dist",
   "functions": {
     "api/**/*.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs18.x"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/groups/([^/]+)/view",
-      "dest": "/api/groups/[id]/view.ts"
+      "source": "/api/groups/([^/]+)/view",
+      "destination": "/api/groups/[id]/view.ts"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.ts"
+      "source": "/api/(.*)",
+      "destination": "/api/$1.ts"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!api/.*).*)",
+      "destination": "/index.html"
     }
   ]
 }

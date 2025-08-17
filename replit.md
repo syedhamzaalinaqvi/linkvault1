@@ -1,6 +1,16 @@
 # Overview
 
-This is a WhatsApp Groups Directory application that allows users to discover, browse, and submit WhatsApp group links organized by categories and countries. The platform features a modern React frontend with shadcn/ui components and an Express.js backend with PostgreSQL database integration using Drizzle ORM.
+LinkShare is a WhatsApp Groups Directory application that allows users to discover, browse, and submit WhatsApp group links organized by categories and countries. The platform features a modern React frontend with shadcn/ui components, smart metadata extraction from WhatsApp links, dual view modes (grid/list), and is fully configured for Vercel deployment with serverless API routes.
+
+## Recent Changes (Latest Session)
+- ✅ Fixed SelectItem component errors by replacing empty string values with "all"
+- ✅ Implemented real WhatsApp link metadata extraction using Cheerio and node-fetch
+- ✅ Added smart fallback name/image generation based on group codes
+- ✅ Created dual view modes: Grid view (cards) and List view (profile-style layout)
+- ✅ Built complete Vercel deployment configuration with API routes
+- ✅ Fixed TypeScript errors across all components
+- ✅ Added proper CORS handling for API endpoints
+- ✅ Created comprehensive project documentation and README
 
 # User Preferences
 
@@ -27,13 +37,23 @@ Preferred communication style: Simple, everyday language.
 - **Users Table**: Basic user management with username/password authentication
 - **WhatsApp Groups Table**: Core entity storing group information including title, description, WhatsApp link, category, country, view count, and timestamps
 - **Database Migrations**: Managed through Drizzle Kit with PostgreSQL dialect
+- **Storage**: Currently implements in-memory storage with interface for easy database migration to PostgreSQL
+
+## Deployment Configuration
+- **Vercel Ready**: Complete serverless API routes in /api directory
+- **Build System**: Client-side React build with Vite, API functions with @vercel/node
+- **CORS Handling**: Proper cross-origin headers for all API endpoints
+- **Static Assets**: Optimized for CDN delivery through Vercel
 
 ## Key Features
 - **Group Discovery**: Browse groups by category, country, or search functionality
-- **Group Submission**: Form-based group submission with validation
+- **Smart Metadata Extraction**: Automatically extracts group names and images from WhatsApp links using web scraping
+- **Dual View Modes**: Switch between grid view (large cards) and list view (compact with profile images)
+- **Group Submission**: Form-based group submission with validation and real-time metadata preview
 - **Filtering & Sorting**: Multiple filter options (category, country, search) with sorting capabilities
 - **Responsive Design**: Mobile-first approach with responsive UI components
 - **View Tracking**: Track and display group popularity through view counts
+- **Real-time Stats**: Display total groups, categories, and countries
 
 ## Development Workflow
 - **Hot Reloading**: Integrated development server with Vite for fast development cycles
